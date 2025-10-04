@@ -1,5 +1,5 @@
 // === Konfiguration ===
-const API_BASE = "https://script.google.com/macros/s/AKfycbw1J3ES7SHjM_cqC8jalvgEyx2eCs5dFZU5jhUosCC3BaZkLT6mE5sJBXjraKcxubAA6A/exec";
+const API_BASE = "https://script.google.com/macros/s/AKfycbx_p--AD-asIRQ4-SRUH-Rci0nvC1bEAv0bkPD77-T1QGVfokP1Qqo7sUhvZgsRqFja7g/exec";
 const MAX_ITEMS = 50;
 const PENDING_KEY = 'comments_pending_v1';
 const ADMIN_TOKEN_KEY = 'comments_admin_token_v1';
