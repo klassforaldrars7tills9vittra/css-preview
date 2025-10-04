@@ -347,3 +347,39 @@ textarea:focus {
 noscript div {
   font-weight: 700;
 }
+@media (max-width: 768px) {
+  .item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+
+  .actions-admin {
+    flex-direction: column;
+  }
+
+  .actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .actions button {
+    width: 100%;
+  }
+
+  input[type="text"],
+  input[type="password"],
+  textarea {
+    font-size: 1rem;
+    width: 100%;
+  }
+
+  .feed {
+    max-height: none;
+  }
+}
