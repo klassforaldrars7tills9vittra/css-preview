@@ -1,27 +1,78 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="sv">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CSS Förhandsvisning</title>
-  <style>
-    /* Klistra in hela din CSS här */
-    body { outline: 4px solid magenta !important; } /* Ta bort om du vill */
-    /* Resten av din CSS ... */
-  </style>
+  <title>Kommentarer</title>
+  styles.css?v=2025-10-04-1
+  <meta name="color-scheme" content="light dark" />
 </head>
 <body>
-  <div class="wrap">
-    <div class="card">
-      <div class="row">
-        <label for="kommentar">Kommentar</label>
-        <textarea id="kommentar">Hej! Detta är en testkommentar.</textarea>
-      </div>
-      <div class="actions">
-        <button>Skicka</button>
-        <button class="ghost small">Rensa</button>
-      </div>
+  <noscript>
+    <div style="padding:12px;margin:8px;background:#fee;color:#600;border:1px solid #f99;border-radius:8px;">
+      Den här sidan kräver JavaScript för att fungera.
     </div>
-  </div>
+  </noscript>
+
+  <main class="wrap">
+    <!-- Formulär för ny kommentar -->
+    <section class="card">
+      <h2>💬 Lämna en kommentar</h2>
+      <p class="muted">Skriv en hälsning till klassen. Kommentarer visas efter godkännande.</p>
+
+      <form id="commentForm" autocomplete="on">
+        <div class="row">
+          <label for="name">Namn (valfritt)</label>
+          <input id="name" name="name" type="text" maxlength="60" placeholder="Ditt namn" />
+        </div>
+
+        <div class="row">
+          <label for="comment">Kommentar</label>
+          <textarea id="comment" name="comment" rows="4" maxlength="500"
+                    placeholder="Ex: Bra jobbat klassen vid senaste insamlingen!"></textarea>
+          <div class="help"><span id="charCount">0</span>/500 tecken</div>
+        </div>
+
+        <div class="actions">
+          <button type="submit" id="sendBtn">Skicka</button>
+          <button type="button" id="clearBtn" class="ghost">Rensa</button>
+        </div>
+
+        <p id="formMsg" class="msg" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <!-- Publikt flöde -->
+    <section class="card">
+      <div class="list-header">
+        <h2>📣 Godkända kommentarer</h2>
+        <button id="refreshBtn" class="ghost small" type="button">Uppdatera</button>
+      </div>
+
+      <ul id="feed" class="feed" aria-live="polite" aria-busy="false"></ul>
+      <p id="status" class="muted small"></p>
+    </section>
+
+    <!-- Admin-panel -->
+    <section class="card" id="adminPanel" hidden>
+      <div class="list-header">
+        <h2>🛡️ Moderering</h2>
+        <div class="admin-controls">
+          <input id="adminToken" type="password" placeholder="Admin‑token" />
+          <button id="adminLogin" class="small" type="button">Logga in</button>
+          <button id="adminLogout" class="ghost small" type="button" hidden>Logga ut</button>
+          <button id="adminRefresh" class="ghost small" type="button" hidden>Pendings</button>
+        </div>
+      </div>
+
+      <ul id="pendingList" class="feed" aria-live="polite" aria-busy="false"></ul>
+      <p id="adminStatus" class="muted small"></p>
+    </section>
+  </main>
+
+  <!-- Toast för kvittenser -->
+  <div id="toast" class="toast" role="status" aria-live="assertive" aria-atomic="true"></div>
+
+  app.js?v=2025-10-04-1</script>
 </body>
 </html>
